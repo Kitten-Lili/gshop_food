@@ -2,8 +2,7 @@
 import axios from 'axios'
 
 // 返回值是：promise对象(异步返回的数据是:response.data)
-export default function ajax(url,data={},type){  // 地址，请求体，请求方式
-
+export default function ajax(url,data={},type='GET'){  // 地址，请求体，请求方式
   return new Promise(function (resolve,reject){
     // 执行异步ajax请求
     let promise
@@ -11,7 +10,7 @@ export default function ajax(url,data={},type){  // 地址，请求体，请求�
       // 准备url query参数数据
       let dataStr = '' // 数据拼接字符串
       Object.keys(data).forEach(key => {
-        dataStr += keu + '=' + data[key] + '&'
+        dataStr += key + '=' + data[key] + '&'
       })
       if(dataStr !== ''){
         dataStr = dataStr.substring(0,dataStr.lastIndexOf('&'))

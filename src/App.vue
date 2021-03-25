@@ -6,8 +6,19 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 import FooterGuide from './components/FooterGuide/FooterGuide.vue'
+
 export default {
+  //  async 用于申明一个 function 是异步的，而 await 用于等待一个异步方法执行完成。
+  mounted() {
+    // this.$store.dispatch('getAddress')
+    this.getAddress()
+    this.getUserInfo()
+  },
+  methods:{
+    ...mapActions(['getAddress','getUserInfo'])
+  },
   components: {
     FooterGuide
   }
